@@ -76,7 +76,7 @@ export const MediaSidebar = () => {
       handleResp(resp, () => {
         changeToken()
         notify.success(t("manage.logout_success"))
-        to(`/@login?redirect=${encodeURIComponent(location.pathname)}`)
+        to(`/@ulogin?redirect=${encodeURIComponent(location.pathname)}`)
       })
     } catch {
       setLoggingOut(false)
@@ -89,7 +89,7 @@ export const MediaSidebar = () => {
         label: t("home.media.nav_files"),
         path: "/",
         icon: TbFolder,
-        match: (p) => !p.startsWith("/@media") && !p.startsWith("/@manage"),
+        match: (p) => !p.startsWith("/@media") && !p.startsWith("/@config"),
       },
     ]
     const types = mediaStatus().types
@@ -128,7 +128,7 @@ export const MediaSidebar = () => {
     return list
   })
   // 管理入口固定在侧栏底部（仅管理员可见）
-  const manageActive = createMemo(() => pathname().startsWith("/@manage/media"))
+  const manageActive = createMemo(() => pathname().startsWith("/@config/media"))
 
   // 主题色只作用在侧栏自身：其它页面复用站点默认色板，避免全局 CSS 变量污染
   const paletteVars = createMemo<Record<string, string>>(() =>
@@ -314,7 +314,7 @@ export const MediaSidebar = () => {
                         minW="$6"
                         p="0"
                         aria-label="设置"
-                        onClick={() => to("/@manage/media/settings")}
+                        onClick={() => to("/@config/media/settings")}
                       >
                         <Icon as={TbSettings} boxSize="$4" />
                       </Button>
@@ -348,7 +348,7 @@ export const MediaSidebar = () => {
                     aria-label="登录"
                     onClick={() =>
                       to(
-                        `/@login?redirect=${encodeURIComponent(location.pathname)}`,
+                        `/@ulogin?redirect=${encodeURIComponent(location.pathname)}`,
                       )
                     }
                   >
@@ -363,7 +363,7 @@ export const MediaSidebar = () => {
                     minW="0"
                     px="$1"
                     aria-label="设置"
-                    onClick={() => to("/@manage/media/settings")}
+                    onClick={() => to("/@config/media/settings")}
                   >
                     <Icon as={TbSettings} boxSize="$4" />
                   </Button>

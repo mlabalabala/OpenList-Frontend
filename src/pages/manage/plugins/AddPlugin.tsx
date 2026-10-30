@@ -95,7 +95,7 @@ const AddPlugin = () => {
             pluginEngine.loadPlugin(installed)
           }
           notify.success(t("global.add") + " " + t("global.success"))
-          to("/@manage/plugins")
+          to("/@config/plugins")
         })
       } else {
         const url = manifestUrl().trim()
@@ -112,7 +112,7 @@ const AddPlugin = () => {
             pluginEngine.loadPlugin(installed)
           }
           notify.success(t("global.add") + " " + t("global.success"))
-          to("/@manage/plugins")
+          to("/@config/plugins")
         })
       }
     } finally {

@@ -74,7 +74,7 @@ const get_routes = (items: SideMenuItem[], acc: Route[] = []) => {
       get_routes(item.children, acc)
     } else {
       acc.push({
-        to: trimLeft(item.to!, "/@manage"),
+        to: trimLeft(item.to!, "/@config"),
         backend: item.backend,
         component:
           item.component ||

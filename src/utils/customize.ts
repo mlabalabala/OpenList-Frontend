@@ -28,7 +28,7 @@ import { isTsWorker } from "~/utils/backend"
  *      - TS 后端（未做服务端注入） → 占位符仍在 → 注入
  *      - 将来若 TS 后端也加了服务端注入 → 占位符被替换 → 自动跳过
  *
- * 2) **管理页不注入自定义片段**：Go 的 `noRoute` 对 `/@manage` 返回
+ * 2) **管理页不注入自定义片段**：Go 的 `noRoute` 对 `/@config` 返回
  *    `conf.ManageHtml`（只做了 favicon/logo/title/main_color 替换，
  *    **不含** customize），因此这里在非 TS 后端下复刻该行为。
  *
@@ -59,7 +59,7 @@ const DEFAULT_FAVICON = "https://res.oplist.org/logo/logo.svg"
 const DEFAULT_APPLE_TOUCH_ICON = "https://res.oplist.org/logo/logo.png"
 
 /** 管理页路径段（Go 端对应 conf.ManageHtml）。 */
-const MANAGE_SEGMENT = "/@manage"
+const MANAGE_SEGMENT = "/@config"
 
 /** 注释占位文本：脚本先换成它占住原位置，轮到执行时再换回真正的 script。 */
 const SCRIPT_PLACEHOLDER = "customize script"
@@ -243,7 +243,7 @@ async function runScripts(pending: PendingScript[]): Promise<void> {
   }
 }
 
-/** 当前路径是否为管理页（兼容 base_path 部署：/<base>/@manage/...）。 */
+/** 当前路径是否为管理页（兼容 base_path 部署：/<base>/@config/...）。 */
 function isManagePath(pathname: string): boolean {
   const index = pathname.indexOf(MANAGE_SEGMENT)
   if (index < 0) return false
@@ -282,7 +282,7 @@ async function applyCustomFragments(): Promise<void> {
     return
   }
 
-  // 复刻 Go noRoute 的行为：/@manage 用的是不含 customize 的 ManageHtml。
+  // 复刻 Go noRoute 的行为：/@config 用的是不含 customize 的 ManageHtml。
   // 非 TS 后端（Go / 后端类型未知）按 Go 处理；TS 后端没有这个页面拆分。
   if (!isTsWorker() && isManagePath(location.pathname)) {
     console.debug(

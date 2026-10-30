@@ -50,7 +50,7 @@ function StorageOp(props: StorageProps) {
     <>
       <Button
         onClick={() => {
-          to(`/@manage/storages/edit/${props.storage.id}`)
+          to(`/@config/storages/edit/${props.storage.id}`)
         }}
       >
         {t("global.edit")}

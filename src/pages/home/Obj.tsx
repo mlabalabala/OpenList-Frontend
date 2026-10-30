@@ -72,7 +72,7 @@ export const Obj = () => {
   })
 
   const storageErrorActions = () => (
-    <Button colorScheme="accent" onClick={() => to("/@manage/storages")}>
+    <Button colorScheme="accent" onClick={() => to("/@config/storages")}>
       {t("global.go_to_storages")}
     </Button>
   )
@@ -124,7 +124,7 @@ export const Obj = () => {
                 <Text
                   color="$info9"
                   as={LinkWithBase}
-                  href={`/@login?redirect=${encodeURIComponent(
+                  href={`/@ulogin?redirect=${encodeURIComponent(
                     location.pathname,
                   )}`}
                 >

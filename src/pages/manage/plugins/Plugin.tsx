@@ -30,7 +30,7 @@ export function PluginOp(props: PluginItemProps) {
       <Button
         size="sm"
         onClick={() => {
-          to(`/@manage/plugins/config/${encodeURIComponent(props.plugin.id)}`)
+          to(`/@config/plugins/config/${encodeURIComponent(props.plugin.id)}`)
         }}
       >
         {t("global.edit")}

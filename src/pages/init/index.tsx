@@ -200,7 +200,7 @@ const Init = () => {
     // 只有明确「已初始化」才跳登录页，否则会把用户从唯一能修复配置的
     // 地方反复弹走。
     if (resp?.code === 200 && resp.data?.initialized !== false) {
-      window.location.href = base_path + "/@login"
+      window.location.href = base_path + "/@ulogin"
     }
   })
 
@@ -594,7 +594,7 @@ const Init = () => {
                   <Button
                     colorScheme="primary"
                     flex="1"
-                    onClick={() => goTo("/@login")}
+                    onClick={() => goTo("/@ulogin")}
                   >
                     {t("init.done_go_login")}
                   </Button>
@@ -616,7 +616,7 @@ const Init = () => {
                     variant="subtle"
                     colorScheme="neutral"
                     flex="1"
-                    onClick={() => goTo("/@login")}
+                    onClick={() => goTo("/@ulogin")}
                   >
                     {t("init.done_go_login")}
                   </Button>

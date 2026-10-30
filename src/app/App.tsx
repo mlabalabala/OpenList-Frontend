@@ -168,7 +168,7 @@ const App: Component = () => {
 
   // 后台管理、登录与初始化页面不显示媒体库侧栏
   const hideMediaSidebarPath = () =>
-    ["/@manage", "/@login", "/@init"].some((p) => pathname().startsWith(p))
+    ["/@config", "/@ulogin", "/@init"].some((p) => pathname().startsWith(p))
   const mediaSidebarVisible = () =>
     mediaEnabled() && mediaSidebarOpen() && !hideMediaSidebarPath()
   return (
@@ -199,10 +199,10 @@ const App: Component = () => {
             fallback={
               <Routes base={base_path}>
                 <Route path="/@test" component={Test} />
-                <Route path="/@login" component={Login} />
+                <Route path="/@ulogin" component={Login} />
                 <Route path="/@init" component={Init} />
                 <Route
-                  path="/@manage/*"
+                  path="/@config/*"
                   element={
                     <MustUser>
                       <Manage />

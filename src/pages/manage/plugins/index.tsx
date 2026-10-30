@@ -168,7 +168,7 @@ const Plugins = () => {
         </Button>
         <Button
           onClick={() => {
-            to("/@manage/plugins/add")
+            to("/@config/plugins/add")
           }}
         >
           {t("global.add")}

@@ -169,7 +169,7 @@ const AddOrEdit = () => {
               notify.success(t("global.save_success"))
               if (user.username === me().username)
                 handleResp(await (r.get("/me") as PResp<Me>), setMe)
-              to("/@manage/users", false, { replace: true })
+              to("/@config/users", false, { replace: true })
             })
           }}
         >

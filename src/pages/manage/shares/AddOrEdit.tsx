@@ -192,11 +192,11 @@ const AddOrEdit = () => {
             resp,
             () => {
               notify.success(t("global.save_success"))
-              to("/@manage/shares", false, { replace: true })
+              to("/@config/shares", false, { replace: true })
             },
             (_msg, _code) => {
               if (resp.data.id) {
-                to(`/@manage/shares/edit/${resp.data.id}`)
+                to(`/@config/shares/edit/${resp.data.id}`)
               }
             },
           )

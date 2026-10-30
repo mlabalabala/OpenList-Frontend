@@ -238,7 +238,7 @@ const AddOrEdit = () => {
             // TODO maybe can use handleRrespWithNotifySuccess
             handleResp(resp, () => {
               notify.success(t("global.save_success"))
-              to("/@manage/metas", false, { replace: true })
+              to("/@config/metas", false, { replace: true })
             })
           }}
         >

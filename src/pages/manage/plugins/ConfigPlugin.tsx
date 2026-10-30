@@ -107,7 +107,7 @@ const ConfigPlugin = () => {
           pluginEngine.unloadPlugin(updated.id)
         }
         notify.success(t("global.save_success"))
-        to("/@manage/plugins")
+        to("/@config/plugins")
       })
     } finally {
       setSaving(false)
