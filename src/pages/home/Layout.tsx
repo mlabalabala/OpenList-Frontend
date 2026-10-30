@@ -18,7 +18,7 @@ const Index = () => {
       <Header />
       <Toolbar />
       <Body />
-      /* <Footer /> */
+      {/* <Footer /> */}
     </>
   )
 }
